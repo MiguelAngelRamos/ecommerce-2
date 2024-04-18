@@ -1,8 +1,11 @@
 from django.shortcuts import render
-
+from .models import Producto
 # Create your views here.
 def index(request):
+    productos = Producto.objects.all()
+    print(productos)
     return render(
         request,
-        'index.html'
+        'index.html',
+        { 'productos': productos }
     )
