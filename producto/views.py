@@ -21,4 +21,8 @@ def formulario(request):
             return HttpResponseRedirect('/productos')
     else:
         form = ProductoForm()
-    pass        
+    return render(
+        request,
+        'producto_form.html',
+        {'form': form }
+    )        
