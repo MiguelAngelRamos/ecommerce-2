@@ -12,6 +12,11 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/global_style.css' %}"/>
     <!-- END: Estilos personalizados -->
+
+    <!-- BEGIN: Estilos personalizados de las aplicaciones -->
+    {% block extra_css %}
+    {% endblock %}
+    <!-- END: Estilos personalizados de las aplicaciones -->
   </head>
   <body>
     <!--Navbar nav.navbar.navbar-expand-lg.navbar-light.bg-light -->
