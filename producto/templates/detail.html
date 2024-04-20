@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-<link href="{% static 'producto/css/producto_style.css' %}" rel="stylesheet">
+<link href="{% static 'producto/css/producto_style.css' %}" rel="stylesheet" /> 
 {% endblock %}
 
 {% block content %}
 
-<div class="producto-detalle container">
+<div class="producto-detalle-container">
   <div class="producto-imagen">
     <img src="{{ producto.image }}" alt="{{producto.nombre}}">
   </div>
