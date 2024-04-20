@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Producto
 from .forms import ProductoForm
@@ -25,4 +25,11 @@ def formulario(request):
         request,
         'producto_form.html',
         {'form': form }
-    )        
+    )
+
+def detail(request, producto_id):
+    try:
+        producto = Producto.objects.get(id=producto_id)
+        return render(request, 'detail.html', context={'producto': producto})
+    except Producto.DoesNotExist:
+        raise Http404()
