@@ -1,5 +1,5 @@
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
 
@@ -28,8 +28,12 @@ def formulario(request):
     )
 
 def detail(request, producto_id):
-    try:
-        producto = Producto.objects.get(id=producto_id)
-        return render(request, 'detail.html', context={'producto': producto})
-    except Producto.DoesNotExist:
-        raise Http404()
+    producto = get_object_or_404(Producto, id=producto_id)
+    return render(request, 'detail.html', context={'producto': producto})
+
+# def detail(request, producto_id):
+#     try:
+#         producto = Producto.objects.get(id=producto_id)
+#         return render(request, 'detail.html', context={'producto': producto})
+#     except Producto.DoesNotExist:
+#         raise Http404()
